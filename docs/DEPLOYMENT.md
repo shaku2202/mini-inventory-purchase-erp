@@ -15,15 +15,15 @@ Migrations run automatically when the API starts. They are forward-only, run onc
 1. **Database: [Neon](https://neon.tech)** (free Postgres). Create a project and copy the pooled connection string.
 2. **API: [Render](https://render.com) Web Service**
    - Root directory: `backend`
-   - Build command: `npm ci && npm run build`
+   - Build command: `npm ci --include=dev && npm run build`. `--include=dev` is needed because `NODE_ENV=production` would otherwise skip TypeScript.
    - Start command: `npm start`
    - Environment:
      - `NODE_ENV=production`
-     - `DATABASE_URL=<neon url>`
-     - `DATABASE_SSL=true`
+     - `DATABASE_URL=<neon url with sslmode=verify-full>`, for example `...neon.tech/neondb?sslmode=verify-full&channel_binding=require`. This verifies Neon's TLS certificate.
+     - `DATABASE_SSL=false`, because TLS is configured by `sslmode` in the URL.
      - `CORS_ORIGINS=https://<your-frontend-domain>`
    - Health check path: `/api/health`
-   - After the first deploy, seed the demo data once from your machine: `DATABASE_URL=<neon url> DATABASE_SSL=true npm run db:seed`
+   - Seed the demo data once from your machine: `DATABASE_URL=<neon url> npm run db:seed`
 3. **Front end: Netlify / Vercel / Cloudflare Pages**
    - Root directory: `frontend`
    - Build command: `npm ci && npm run build`
