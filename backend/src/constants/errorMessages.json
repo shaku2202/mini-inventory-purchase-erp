@@ -1,0 +1,57 @@
+{
+  "INTERNAL_SERVER_ERROR": { "httpStatus": 500, "message": "Something went wrong on our side. Please try again later." },
+  "SERVICE_UNAVAILABLE": { "httpStatus": 503, "message": "Database is not reachable. Please try again shortly." },
+  "ROUTE_NOT_FOUND": { "httpStatus": 404, "message": "Route {method} {path} does not exist." },
+  "INVALID_JSON": { "httpStatus": 400, "message": "Request body is not valid JSON." },
+  "PAYLOAD_TOO_LARGE": { "httpStatus": 413, "message": "Request body is too large." },
+  "TOO_MANY_REQUESTS": { "httpStatus": 429, "message": "Too many requests. Please slow down and try again in a moment." },
+  "CORS_NOT_ALLOWED": { "httpStatus": 403, "message": "Origin '{origin}' is not allowed to call this API." },
+
+  "VALIDATION_FAILED": { "httpStatus": 400, "message": "Request validation failed. Check 'details' for the invalid fields." },
+  "FIELD_REQUIRED": { "httpStatus": 400, "message": "{field} is required." },
+  "FIELD_INVALID_TYPE": { "httpStatus": 400, "message": "{field} must be a valid {expected}." },
+  "FIELD_TOO_SHORT": { "httpStatus": 400, "message": "{field} must be at least {min} character(s) long." },
+  "FIELD_TOO_LONG": { "httpStatus": 400, "message": "{field} must be at most {max} character(s) long." },
+  "FIELD_INVALID_EMAIL": { "httpStatus": 400, "message": "{field} must be a valid email address." },
+  "FIELD_INVALID_FORMAT": { "httpStatus": 400, "message": "{field} has an invalid format." },
+  "FIELD_INVALID_ENUM": { "httpStatus": 400, "message": "{field} must be one of: {options}." },
+  "FIELD_INVALID_DATE": { "httpStatus": 400, "message": "{field} must be a valid date in YYYY-MM-DD format." },
+  "FIELD_INVALID_ID": { "httpStatus": 400, "message": "{field} must be a positive whole number." },
+  "FIELD_INVALID_DECIMAL": { "httpStatus": 400, "message": "{field} must be a number with at most {scale} decimal place(s)." },
+  "FIELD_MUST_BE_POSITIVE": { "httpStatus": 400, "message": "{field} must be greater than 0." },
+  "FIELD_MUST_BE_NON_NEGATIVE": { "httpStatus": 400, "message": "{field} cannot be negative." },
+  "FIELD_TOO_LARGE": { "httpStatus": 400, "message": "{field} is too large (maximum {max})." },
+  "FIELD_ARRAY_MIN": { "httpStatus": 400, "message": "{field} must contain at least {min} item(s)." },
+  "FIELD_ARRAY_MAX": { "httpStatus": 400, "message": "{field} can contain at most {max} item(s)." },
+  "FIELD_UNKNOWN": { "httpStatus": 400, "message": "Unknown field(s): {keys}." },
+  "FIELD_DATE_BEFORE_ORDER": { "httpStatus": 400, "message": "{field} cannot be before the order date." },
+
+  "IDEMPOTENCY_KEY_REQUIRED": { "httpStatus": 400, "message": "Header 'Idempotency-Key' is required for this operation so that retries cannot be processed twice." },
+  "IDEMPOTENCY_KEY_INVALID": { "httpStatus": 400, "message": "Header 'Idempotency-Key' must be 8-100 characters using letters, digits, '-', '_' or ':'." },
+  "IDEMPOTENCY_KEY_REUSED": { "httpStatus": 409, "message": "Idempotency-Key '{key}' was already used for a different request. Generate a new key for a new operation." },
+
+  "DUPLICATE_RESOURCE": { "httpStatus": 409, "message": "A record with the same unique value already exists." },
+  "REFERENCED_RESOURCE_NOT_FOUND": { "httpStatus": 422, "message": "A referenced record does not exist." },
+  "CONSTRAINT_VIOLATION": { "httpStatus": 422, "message": "The operation violates a data integrity rule ({constraint})." },
+
+  "VENDOR_NOT_FOUND": { "httpStatus": 404, "message": "Vendor with id {vendorId} does not exist." },
+  "VENDOR_INACTIVE": { "httpStatus": 422, "message": "Vendor {vendorCode} is inactive and cannot be used for new transactions." },
+  "VENDOR_CODE_EXISTS": { "httpStatus": 409, "message": "A vendor with code '{code}' already exists." },
+
+  "PRODUCT_NOT_FOUND": { "httpStatus": 404, "message": "Product with id {productId} does not exist." },
+  "PRODUCTS_NOT_FOUND": { "httpStatus": 404, "message": "These product id(s) do not exist or are inactive: {productIds}." },
+  "PRODUCT_SKU_EXISTS": { "httpStatus": 409, "message": "A product with SKU '{sku}' already exists." },
+
+  "PURCHASE_ORDER_NOT_FOUND": { "httpStatus": 404, "message": "Purchase order with id {purchaseOrderId} does not exist." },
+  "PO_DUPLICATE_PRODUCT": { "httpStatus": 400, "message": "Product {productId} appears more than once. Combine the quantities into a single line." },
+  "PO_VENDOR_MISMATCH": { "httpStatus": 422, "message": "Purchase order {poNumber} does not belong to vendor {vendorId}." },
+
+  "PO_ALREADY_FULLY_RECEIVED": { "httpStatus": 409, "message": "Purchase order {poNumber} has already been fully received. Duplicate receipt rejected." },
+  "RECEIPT_DUPLICATE_ITEM": { "httpStatus": 400, "message": "Purchase order item {purchaseOrderItemId} appears more than once in this receipt." },
+  "RECEIPT_ITEM_NOT_IN_PO": { "httpStatus": 422, "message": "Item {purchaseOrderItemId} does not belong to purchase order {poNumber}." },
+  "RECEIPT_EXCEEDS_PENDING_QTY": { "httpStatus": 422, "message": "Cannot receive {requested} of '{productName}': only {pending} is still pending on {poNumber}." },
+
+  "PAYMENT_NO_OUTSTANDING": { "httpStatus": 422, "message": "Vendor {vendorCode} has no outstanding balance. Advance payments are not supported." },
+  "PAYMENT_EXCEEDS_OUTSTANDING": { "httpStatus": 422, "message": "Payment of {amount} exceeds the outstanding balance of {outstanding} for vendor {vendorCode}." },
+  "PAYMENT_EXCEEDS_PO_OUTSTANDING": { "httpStatus": 422, "message": "Payment of {amount} exceeds the outstanding balance of {outstanding} on purchase order {poNumber}." }
+}
