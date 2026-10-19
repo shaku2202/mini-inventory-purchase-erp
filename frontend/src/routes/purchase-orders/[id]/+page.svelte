@@ -138,7 +138,7 @@
 	</div>
 
 	<div class="mb-5 text-sm text-slate-600">
-		Ordered {formatDate(po.orderDate)}{#if po.expectedDate} · expected {formatDate(po.expectedDate)}{/if}{#if po.notes} · {po.notes}{/if}
+		Ordered {formatDate(po.orderDate)}{#if po.expectedDate}{' · '}expected {formatDate(po.expectedDate)}{/if}{#if po.notes}{' · '}{po.notes}{/if}
 	</div>
 
 	<form class="card mb-5" onsubmit={receive} novalidate>

@@ -150,4 +150,11 @@ Open-source libraries used: Express, Zod, pg, pino, helmet, express-rate-limit, 
 
 ### Demo URL
 
-_To be added after deployment._
+| Part | URL |
+|---|---|
+| **App (front end)** | https://mini-erp-jp.netlify.app |
+| API health | https://mini-inventory-purchase-erp.onrender.com/api/health |
+
+Hosting is free-tier: Netlify (front end), Render (API, Singapore) and Neon (PostgreSQL 18, Singapore). **The API sleeps after ~15 minutes of inactivity, so the first request can take 30–50 seconds.** After that, responses are fast. No login is required.
+
+Demo data: the seeded vendors and products, plus a sample flow under the vendor **Shashank Glass Traders**. This flow has PO-000002 fully received through 3 GRNs (one of them a replayed retry), with ₹40,000 of ₹64,900 paid.
